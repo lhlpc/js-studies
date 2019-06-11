@@ -55,3 +55,23 @@ console.log(arrowFunc2(2));
 // Arrow + Callback
 let mainArrow = (arrowFunc) => arrowFunc(2, 2);
 console.log(mainArrow((a, b) => a + b));
+
+// ------------- Function Object
+console.log('--- Function Object ---');
+let functionObj = function() {
+  console.log("function object print");
+}
+functionObj.message = 'this is the function message';
+console.log(functionObj.name, functionObj.message, functionObj.length, functionObj.caller);
+functionObj();
+functionObj.call();
+
+// ------------- Named Function Expression (NFE)
+console.log('--- Named Function Expression (NFE) ---');
+functionGlobalName = function internalFunctionName() {
+  console.log(internalFunctionName.name);
+}
+functionGlobalName();
+// internalFunctionName(); // error
+let fun = new Function('console.log(\'new Function\')');
+fun();
